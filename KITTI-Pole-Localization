@@ -1,0 +1,82 @@
+Install required packages
+=============================
+pip install numpy matplotlib open3d-python progressbar2 pyquaternion transforms3d scipy scikit-image networkx numba arrow pykitti
+
+Clone the repository
+======================
+git clone https://github.com/PRBonn/pole-localization.git
+cd pole-localization/
+
+Retrieve the data (make sure you have enough space)
+======================================================
+cd kitti/raw_data
+chmod 700 kitti_downloader.sh (gives executable access to the script)
+./kitti_downloader.sh
+
+
+Need to replace "np.int" with "int" in kittipoles.py, cluster.py, and particlefilter.py
+=========================================================================================
+cd ../..
+cd src/
+vi kittipoles.py (change "np.int" to "int")
+:wq [ENTER]
+
+vi cluster.py (change "np.int" to "int")
+:wq [ENTER]
+
+vi particlefilter.py (change "np.int" to "int")
+:wq [ENTER]
+
+Run kittipoles.py
+==================
+cd ..
+python3 src/kittipoles.py (should run and print out metrics)
+
+Results:
+--------
+poserror: 0.08684289041707008
+posrmse: 0.10015151884984975
+laterror: 0.06273186253090295
+latstd: 0.06871595398383268
+lonerror: 0.043992248699810825
+lonstd: 0.054692475675388194
+angerror: 0.07142823219859014
+angstd: 0.09396590203187964
+angrmse: 0.09465338972517809
+
+Go to kitti folder and then 013
+================================
+cd kitti/013
+
+You should now see: evaluation.npz, globalmap_3.npz, localization_2023-11-30_23-06-03.npz (matches the date you ran the code), localmaps_3.npz, and trajectory_est.svg
+
+Wrote some scripts to visualize the maps: view_gm.py (global map), view_lm.py (local map), and view_loc.py (localization estimation)
+
+Run them in the kitti/013 directory
+=====================================
+python3 view_gm.py
+python3 view_lm.py
+python3 view_loc.py
+
+The trajectory_est.svg is just an image. In Ubuntu you should be able to just double tap it from your "Files" app. Go in "Files" and to the kitti/013 directory. Double tap the trajectory_est.svg file and the image should pop up.
+
+
+Run test-icp-all.py
+====================
+Visualizes the localizations on top of the global map
+
+
+Run scipy-icp.py
+=================
+python3 scipy-icp.py
+prints MSE, RMSE, Precision, Recall, and F1-Score
+
+Results:
+----------
+MSE: 2916.4866781862647
+RMSE: 54.004506091494484
+Precision: 0.7214
+Recall: 0.9581
+F1 Score: 0.8231
+
+Visualizes the Original Global Map and the new Aligned Localization Map
