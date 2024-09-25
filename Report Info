@@ -1,0 +1,14 @@
+Figures for the report:
+========================
+On Desktop
+	- global_map.png
+	- local_map_points.png
+	- localization_est.png
+	- trajectory_est.png
+All of these are directly from running pole localization (kittipoles.py)
+
+For ICP (screenshot maps)
+	- run test-global-icp.py
+	- run test-local-icp.py
+	- run test-icp-all.py
+	- run scipy-icp.py (save metrics reported)
