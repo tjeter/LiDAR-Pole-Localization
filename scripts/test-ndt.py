@@ -124,11 +124,11 @@ grid_size = 1.0
 
 # Load global map from file
 global_map_data = np.load('globalmap_3.npz')
-global_map_points = global_map_data['polemeans'][:, :2] # Replace 'points' with the actual key in your file
+global_map_points = global_map_data['polemeans'][:, :2] 
 
 # Load localization map from file
 localization_map_data = np.load('localization_2023-11-30_23-06-03.npz')
-localization_map_points = localization_map_data['T_w_velo_est'][:, :2, 3] # Replace 'points' with the actual key in your file
+localization_map_points = localization_map_data['T_w_velo_est'][:, :2, 3] 
 
 local_ndt_grid = initialize_ndt_grid(localization_map_points, grid_size)
 global_ndt_grid = initialize_ndt_grid(global_map_points, grid_size)
