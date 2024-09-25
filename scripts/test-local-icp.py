@@ -3,11 +3,11 @@ import numpy as np
 import pandas as pd
 
 # Load your localization map
-localization_map_file = 'localization_2023-11-30_23-06-03.npz'  # Replace with the actual file path
+localization_map_file = 'localization_2023-11-30_23-06-03.npz'  
 
 # Load localization map point cloud
 with np.load(localization_map_file, allow_pickle=True) as data:
-    localization_map_points = data['T_w_velo_est'][:, :2, 3]  # Assuming 'T_w_velo_est' contains the localization poses
+    localization_map_points = data['T_w_velo_est'][:, :2, 3]  
 
 # Add a third column for Z-coordinate (zeros in this case)
 localization_map_points_3d = np.hstack([localization_map_points, np.zeros((localization_map_points.shape[0], 1))])
