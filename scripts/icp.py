@@ -2,16 +2,16 @@ import open3d as o3d
 import numpy as np
 
 # Load your global map and estimated localization point cloud
-global_map_file = 'globalmap_3.npz'  # Replace with the actual file path
-localization_estimation_file = 'localization_2023-11-30_23-06-03.npz'  # Replace with the actual file path
+global_map_file = 'globalmap_3.npz'  
+localization_estimation_file = 'localization_2023-11-30_23-06-03.npz'  
 
 # Load global map and estimated localization point cloud
 with np.load(global_map_file, allow_pickle=True) as data:
-    global_map_points = data['polemeans'][:, :2]  # Assuming 'polemeans' contains the XY coordinates of poles
+    global_map_points = data['polemeans'][:, :2]  
 print(global_map_points.shape)
 print(type(global_map_points))
 with np.load(localization_estimation_file, allow_pickle=True) as data:
-    localization_estimation_points = data['T_w_velo_est'][:, :2, 3]  # Assuming 'T_w_velo_est' contains estimated poses
+    localization_estimation_points = data['T_w_velo_est'][:, :2, 3]  
 
 # Convert the point clouds to open3d format
 global_map_cloud = o3d.geometry.PointCloud()
