@@ -10,7 +10,5 @@ def view_global_map(globalmapfile):
         plt.title('Global Pole Map')
         plt.show()
 
-# Use the filename of the global map file generated in your script
 globalmapfile = 'globalmap_3.npz'
 view_global_map(globalmapfile)
-
