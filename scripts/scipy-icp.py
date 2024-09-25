@@ -51,12 +51,12 @@ def estimate_rigid_transform(source, target):
 
 # Load global map from file
 global_map_data = np.load('globalmap_3.npz')
-global_map_points = global_map_data['polemeans'][:, :2] # Replace 'points' with the actual key in your file
+global_map_points = global_map_data['polemeans'][:, :2] 
 
 
 # Load localization map from file
 localization_map_data = np.load('localization_2023-11-30_23-06-03.npz')
-localization_map_points = localization_map_data['T_w_velo_est'][:, :2, 3] # Replace 'points' with the actual key in your file
+localization_map_points = localization_map_data['T_w_velo_est'][:, :2, 3] 
 
 # Assuming global_map_points and localization_map_points are your point clouds
 aligned_localization_map = icp_scipy(localization_map_points, global_map_points)
