@@ -12,7 +12,5 @@ def view_localization_estimation(localization_file):
     plt.legend()
     plt.show()
 
-# Use the filename of the localization estimation file generated in your script
 localization_file = 'localization_2023-11-30_23-06-03.npz'
 view_localization_estimation(localization_file)
-
