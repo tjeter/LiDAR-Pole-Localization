@@ -11,10 +11,7 @@ def view_local_maps(localmapfile):
         plt.xlabel('x [m]')
         plt.ylabel('y [m]')
         plt.title('Local Pole Maps')
-#        plt.legend()
         plt.show()
 
-# Use the filename of the local map file generated in your script
 localmapfile = 'localmaps_3.npz'
 view_local_maps(localmapfile)
-
